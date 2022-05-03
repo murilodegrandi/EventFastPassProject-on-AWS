@@ -2,7 +2,7 @@ import boto3
 
 collectionId = 'Event-FastPass'
 region = "us-east-1"
-photo = 'stack/wordpress/wp-content/Photos/will smith2.jpg'
+photo = 'stack/wordpress/wp-content/Photos/erika.jpg'
 threshold = 99
 maxFaces = 1
 client = boto3.client('rekognition', region_name=region)
