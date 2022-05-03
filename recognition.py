@@ -5,7 +5,7 @@ import urllib.parse
 import urllib.error
 if __name__ == "__main__":
 
-    bucket = 'rekogpicturess3'
+    bucket = 'lightsailphotos'
     collectionId = 'EFP_Collection-1'
     fileName = urllib.parse.unquote_plus(['Records'][0]['s3']['object']['key'])
     threshold = 98
