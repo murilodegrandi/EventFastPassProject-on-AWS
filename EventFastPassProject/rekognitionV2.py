@@ -1,17 +1,18 @@
+#This script is responsible for the image recognition.
+
 import boto3
 
-collectionId = 'Event-FastPass'
+collectionId = 'Event-FastPass2'
 region = "us-east-1"
 photo = 'check.jpg'
 threshold = 99
 maxFaces = 1
 client = boto3.client('rekognition', region_name=region)
 
-BUCKET_NAME = 'search4photobucket' # replace with your bucket name
-KEY = 'check.jpg' # replace with your object key
+BUCKET_NAME = 'search4photobucket' # our photo upload S3 bucket
+KEY = 'check.jpg' # name of the image to download
 
 s3 = boto3.resource('s3')
-
 
 
 try:
@@ -37,7 +38,7 @@ try:
         print('Similarity: ' + "{:.2f}".format(match['Similarity']) + "%")
         print('Confidence: ' + str(match['Face']['Confidence']))
     
-    #Send SNS Topic 
+    #Send SNS Topic to the Event admin to inform whether the guest is allowed or not.
 
     # Create an SNS client
     client = boto3.client('sns', region_name=region)
