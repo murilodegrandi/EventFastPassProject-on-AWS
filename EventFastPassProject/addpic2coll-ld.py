@@ -1,5 +1,7 @@
-#This Lambda function is triggered every time a new photo is uploaded to the website S3 bucket which stores photos from registered guests. 
+#This is a Lambda function and must be configured in the AWS Lambda environment. 
 #Its purpose is to add new faces to the Rekognition Collection that will be used for face comparison.
+#Before using it, a trigger must be added to run the function every time a new photo is uploaded to the website S3 bucket, which stores photos from registered guests. 
+
 
 import boto3
 from decimal import Decimal
